@@ -13,21 +13,14 @@ class GildedRose {
             boolean isAgedBrie = ItemName.isAgedBrie(item.name);
             boolean isBackstagePasses = ItemName.isBackstagePasses(item.name);
 
-            checkSellIn(item, isSulfuras);
+            updateSellIn(item, isSulfuras);
 
             if (!isAgedBrie && !isBackstagePasses) {
                 decreaseQuality(item, isSulfuras);
             } else {
-                if (item.quality < 50) {
+                if (qualityCanBeIncreased(item)) {
                     increaseQuality(item);
-                    if (isBackstagePasses) {
-                        if (item.sellIn < 11) {
-                            increaseQuality(item);
-                        }
-                        if (item.sellIn < 6) {
-                            increaseQuality(item);
-                        }
-                    }
+                    increaseQualityForBackstagePasses(item, isBackstagePasses);
                 }
             }
             if (item.sellIn < 0) {
@@ -44,7 +37,22 @@ class GildedRose {
         }
     }
 
-    private void checkSellIn(Item item, boolean isSulfuras) {
+    private void increaseQualityForBackstagePasses(Item item, boolean isBackstagePasses) {
+        if (isBackstagePasses) {
+            if (item.sellIn < 11) {
+                increaseQuality(item);
+            }
+            if (item.sellIn < 6) {
+                increaseQuality(item);
+            }
+        }
+    }
+
+    private boolean qualityCanBeIncreased(Item item) {
+        return item.quality < 50;
+    }
+
+    private void updateSellIn(Item item, boolean isSulfuras) {
         if (!isSulfuras) {
             decreaseSellIn(item);
         }
@@ -55,7 +63,7 @@ class GildedRose {
     }
 
     private void increaseQuality(Item item) {
-        if (item.quality < 50) {
+        if (qualityCanBeIncreased(item)) {
             item.quality = item.quality + 1;
         }
     }
