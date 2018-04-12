@@ -13,4 +13,16 @@ public enum  ItemName {
     public String getName() {
         return name;
     }
+
+    public static boolean isAgedBrie(String name) {
+        return AGED_BRIE.name.equals(name);
+    }
+
+    public static boolean isBackstagePasses(String name) {
+        return BACKSTAGE_PASSES.name.equals(name);
+    }
+
+    public static boolean isSulfuras(String name) {
+        return SULFURAS.name.equals(name);
+    }
 }
