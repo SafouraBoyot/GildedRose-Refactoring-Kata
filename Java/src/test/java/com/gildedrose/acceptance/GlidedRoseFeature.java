@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GlidedRoseFeature {
     @Test
-    public void GoldMaster() {        
+    public void GoldenMaster() {        
         String actualResult = getActualResult();
         String expectedResult = getExpectedResult();
         
@@ -14,30 +14,30 @@ public class GlidedRoseFeature {
     }
 
     private String getExpectedResult() {
-        String FILENAME = "src/test/java/com/gildedrose/goldenMaster.txt";
-        BufferedReader br = null;
-        FileReader fr = null;
-        StringBuilder expectedResult = new StringBuilder();
-        try {
-            fr = new FileReader(FILENAME);
-            br = new BufferedReader(fr);
-            String sCurrentLine;
-            while ((sCurrentLine = br.readLine()) != null) {
-                expectedResult.append(sCurrentLine);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (br != null)
-                    br.close();
-                if (fr != null)
-                    fr.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return expectedResult.toString();
+        return "OMGHAI!\n" +
+                "-------- day 0 --------\n" +
+                "name, sellIn, quality\n" +
+                "+5 Dexterity Vest, 10, 20\n" +
+                "Aged Brie, 2, 0\n" +
+                "Elixir of the Mongoose, 5, 7\n" +
+                "Sulfuras, Hand of Ragnaros, 0, 80\n" +
+                "Sulfuras, Hand of Ragnaros, -1, 80\n" +
+                "Backstage passes to a TAFKAL80ETC concert, 15, 20\n" +
+                "Backstage passes to a TAFKAL80ETC concert, 10, 49\n" +
+                "Backstage passes to a TAFKAL80ETC concert, 5, 49\n" +
+                "Conjured Mana Cake, 3, 6\n" +
+                "\n" +
+                "-------- day 1 --------\n" +
+                "name, sellIn, quality\n" +
+                "+5 Dexterity Vest, 9, 19\n" +
+                "Aged Brie, 1, 1\n" +
+                "Elixir of the Mongoose, 4, 6\n" +
+                "Sulfuras, Hand of Ragnaros, 0, 80\n" +
+                "Sulfuras, Hand of Ragnaros, -1, 80\n" +
+                "Backstage passes to a TAFKAL80ETC concert, 14, 21\n" +
+                "Backstage passes to a TAFKAL80ETC concert, 9, 50\n" +
+                "Backstage passes to a TAFKAL80ETC concert, 4, 50\n" +
+                "Conjured Mana Cake, 2, 5\n";
     }
 
     private String getActualResult() {
@@ -49,6 +49,7 @@ public class GlidedRoseFeature {
         System.out.flush();
         System.setOut(old);
         String consoleResult = outputStream.toString();
+        
         return consoleResult.replaceAll("\n", "");
     }
 }
