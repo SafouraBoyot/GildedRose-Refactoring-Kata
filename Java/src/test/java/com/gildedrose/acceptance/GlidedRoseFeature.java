@@ -37,7 +37,8 @@ public class GlidedRoseFeature {
                 "Backstage passes to a TAFKAL80ETC concert, 14, 21\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 9, 50\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 4, 50\n" +
-                "Conjured Mana Cake, 2, 5\n";
+                "Conjured Mana Cake, 2, 5\n" +
+                "\n";
     }
 
     private String getActualResult() {
@@ -50,6 +51,6 @@ public class GlidedRoseFeature {
         System.setOut(old);
         String consoleResult = outputStream.toString();
         
-        return consoleResult.replaceAll("\n", "");
+        return consoleResult;
     }
 }

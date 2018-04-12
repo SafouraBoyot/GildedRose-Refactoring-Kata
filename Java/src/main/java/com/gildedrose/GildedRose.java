@@ -13,7 +13,7 @@ class GildedRose {
             boolean isBackstagePassed = items[i].name.equals("Backstage passes to a TAFKAL80ETC concert");
 
             boolean isSulfuras = items[i].name.equals("Sulfuras, Hand of Ragnaros");
-            
+
             if (!isAgedBrie && !isBackstagePassed) {
                 if (items[i].quality > 0) {
                     if (!isSulfuras) {
@@ -21,9 +21,9 @@ class GildedRose {
                     }
                 }
             } else {
+                //30-80
                 if (items[i].quality < 50) {
                     increaseQuality(i);
-
                     if (isBackstagePassed) {
                         if (items[i].sellIn < 11) {
                             if (items[i].quality < 50) {
@@ -40,10 +40,7 @@ class GildedRose {
                 }
             }
 
-            if (!isSulfuras) {
-                items[i].sellIn = items[i].sellIn - 1;
-            }
-
+            checkSellIn(i, isSulfuras);
             if (items[i].sellIn < 0) {
                 if (!isAgedBrie) {
                     if (!isBackstagePassed) {
@@ -62,6 +59,18 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private void checkSellIn(int i, boolean isSulfuras) {
+        if (!isSulfuras) {
+            decreaseSellIn(i);
+        }
+    }
+
+
+
+    private void decreaseSellIn(int index) {
+        items[index].sellIn = items[index].sellIn - 1;
     }
 
     private void increaseQuality(int index) {
