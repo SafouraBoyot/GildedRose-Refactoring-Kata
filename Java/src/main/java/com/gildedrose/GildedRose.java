@@ -8,23 +8,13 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item: items) { 
+        for (Item item : items) {
             boolean isSulfuras = ItemName.isSulfuras(item.name);
             boolean isAgedBrie = ItemName.isAgedBrie(item.name);
             boolean isBackstagePasses = ItemName.isBackstagePasses(item.name);
 
             checkSellIn(item, isSulfuras);
 
-            if (isAgedBrie) {
-                //do smth to its quality and sellin
-            }
-            if (isSulfuras) {
-                //do smth to its quality and sellin
-            }
-            if (isBackstagePasses) {
-                //do smth to its quality and sellin
-            }
-            
             if (!isAgedBrie && !isBackstagePasses) {
                 decreaseQuality(item, isSulfuras);
             } else {
@@ -59,7 +49,7 @@ class GildedRose {
             decreaseSellIn(item);
         }
     }
-    
+
     private void decreaseSellIn(Item item) {
         item.sellIn = item.sellIn - 1;
     }

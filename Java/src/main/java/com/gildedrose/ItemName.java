@@ -10,10 +10,6 @@ public enum  ItemName {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public static boolean isAgedBrie(String name) {
         return AGED_BRIE.name.equals(name);
     }
