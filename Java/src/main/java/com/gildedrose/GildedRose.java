@@ -13,6 +13,11 @@ class GildedRose {
             boolean isAgedBrie = ItemName.isAgedBrie(item.name);
             boolean isBackstagePasses = ItemName.isBackstagePasses(item.name);
 
+            //decide what item type
+//            Item someItem = new...
+//            item.updateQuality();
+//            item.updateSellIn();
+
             updateSellIn(item, isSulfuras);
 
             if (!isAgedBrie && !isBackstagePasses) {
@@ -20,7 +25,11 @@ class GildedRose {
             } else {
                 if (qualityCanBeIncreased(item)) {
                     increaseQuality(item);
-                    increaseQualityForBackstagePasses(item, isBackstagePasses);
+                    if(isBackstagePasses){
+                        BackstagePasses backstagePasses = new BackstagePasses(item.name, item.sellIn, item.quality);
+                        backstagePasses.increaseQuality();
+                        item =backstagePasses;
+                    }
                 }
             }
             if (item.sellIn < 0) {
@@ -36,6 +45,9 @@ class GildedRose {
             }
         }
     }
+
+
+
 
     private void increaseQualityForBackstagePasses(Item item, boolean isBackstagePasses) {
         if (isBackstagePasses) {
