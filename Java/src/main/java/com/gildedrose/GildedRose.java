@@ -9,19 +9,16 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            boolean isAgedBrie = items[i].name.equals("Aged Brie");
-            boolean isBackstagePassed = items[i].name.equals("Backstage passes to a TAFKAL80ETC concert");
+            boolean isAgedBrie = items[i].name.equals(ItemName.AGED_BRIE.getName());
+            boolean isBackstagePassed = items[i].name.equals(ItemName.BACKSTAGE_PASSES.getName());
 
-            boolean isSulfuras = items[i].name.equals("Sulfuras, Hand of Ragnaros");
+            boolean isSulfuras = items[i].name.equals(ItemName.SULFURAS.getName());
 
             if (!isAgedBrie && !isBackstagePassed) {
                 if (items[i].quality > 0) {
-                    if (!isSulfuras) {
-                        decreaseQuality(i);
-                    }
+                    decreaseQuality(i, isSulfuras);
                 }
             } else {
-                //30-80
                 if (items[i].quality < 50) {
                     increaseQuality(i);
                     if (isBackstagePassed) {
@@ -45,9 +42,7 @@ class GildedRose {
                 if (!isAgedBrie) {
                     if (!isBackstagePassed) {
                         if (items[i].quality > 0) {
-                            if (!isSulfuras) {
-                                decreaseQuality(i);
-                            }
+                            decreaseQuality(i, isSulfuras);
                         }
                     } else {
                         items[i].quality = 0;
@@ -77,7 +72,9 @@ class GildedRose {
         items[index].quality = items[index].quality + 1;
     }
 
-    private void decreaseQuality(int index) {
-        items[index].quality = items[index].quality - 1;
+    private void decreaseQuality(int index, boolean isSulfuras) {
+        if (!isSulfuras) {
+            items[index].quality = items[index].quality - 1;
+        }
     }
 }
