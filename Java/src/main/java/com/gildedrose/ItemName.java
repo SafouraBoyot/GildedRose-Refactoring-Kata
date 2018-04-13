@@ -3,7 +3,7 @@ package com.gildedrose;
 public enum  ItemName {
     AGED_BRIE("Aged Brie"),
     BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"),
-    SULFURAS("SulfurasItemHandler, Hand of Ragnaros");
+    SULFURAS("SulfurasCategory, Hand of Ragnaros");
 
     private String name;
 

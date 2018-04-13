@@ -1,12 +1,8 @@
 package com.gildedrose;
 
-public class RegularItemItemHandler extends Item implements ItemHandler {
-
-    private Item item;
-
-    public RegularItemItemHandler(Item item) {
+public class RegularItemCategory extends Category implements CategoryHandler {
+    public RegularItemCategory(Item item) {
         super(item.name, item.sellIn, item.quality);
-        this.item = item;
     }
 
     @Override
@@ -26,6 +22,4 @@ public class RegularItemItemHandler extends Item implements ItemHandler {
         this.sellIn--;
         return this;
     }
-
-
 }

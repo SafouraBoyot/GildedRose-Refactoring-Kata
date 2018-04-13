@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public interface ItemHandler {
+public interface CategoryHandler {
     Item updateQuality();
     Item updateSellIn();
 }

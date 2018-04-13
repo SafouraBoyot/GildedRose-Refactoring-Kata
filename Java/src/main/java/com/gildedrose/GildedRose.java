@@ -10,13 +10,11 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemHandlerFactory itemHandlerFactory = new ItemHandlerFactory(item);
-            ItemHandler itemHandler = itemHandlerFactory.getItemHandler();
-            
-//            item = itemHandler.updateItem().clone();
+            CategoryFactory categoryFactory = new CategoryFactory(item);
+            CategoryHandler categoryHandler = categoryFactory.getCategoryHandler();
 
-            item.quality = itemHandler.updateQuality().quality;
-            item.sellIn = itemHandler.updateSellIn().sellIn;
+            item.quality = categoryHandler.updateQuality().quality;
+            item.sellIn = categoryHandler.updateSellIn().sellIn;
         }
     }
 }

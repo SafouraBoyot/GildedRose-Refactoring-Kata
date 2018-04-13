@@ -6,11 +6,10 @@ import static org.junit.Assert.assertEquals;
 
 public class AgedBrieShould {
     @Test
-    public void increase_in_quality()
-    {
+    public void increase_in_quality() {
         Item item = new Item("Aged Brie", 2, 4);
 
-        AgedBrieItemHandler agedBrie = new AgedBrieItemHandler(item);
+        AgedBrieCategory agedBrie = new AgedBrieCategory(item);
         int expectedQuality = agedBrie.quality+1;
 
         agedBrie.updateQuality();
@@ -22,7 +21,7 @@ public class AgedBrieShould {
     public void decrease_in_sellIn() {
         Item item = new Item("Aged Brie", 2, 4);
 
-        AgedBrieItemHandler agedBrie = new AgedBrieItemHandler(item);
+        AgedBrieCategory agedBrie = new AgedBrieCategory(item);
         int expectedSellIn = agedBrie.sellIn-1;
 
         agedBrie.updateSellIn();
@@ -32,10 +31,8 @@ public class AgedBrieShould {
 
     @Test
     public void increase_in_quality_twice_when_sellIn_negative() {
-
-
         Item item = new Item("Aged Brie", -1, 2);
-        AgedBrieItemHandler agedBrie = new AgedBrieItemHandler(item);
+        AgedBrieCategory agedBrie = new AgedBrieCategory(item);
         int expectedQuality = agedBrie.quality+2;
 
         agedBrie.updateQuality();
