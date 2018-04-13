@@ -8,7 +8,7 @@ public class BackstagePasses extends Item implements ItemHandler {
     @Override
     public void updateQuality() {
         if (this.sellIn < 0) this.quality = 0;
-        this.quality++;
+        increaseQuality();
         if (sellIn < 11) {
             increaseQuality();
         }
@@ -31,5 +31,4 @@ public class BackstagePasses extends Item implements ItemHandler {
     private boolean qualityCanBeIncreased() {
         return this.quality < 50;
     }
-
 }

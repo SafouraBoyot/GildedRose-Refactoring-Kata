@@ -8,8 +8,13 @@ public class RegularItem extends Item implements ItemHandler {
 
     @Override
     public void updateQuality() {
-        this.quality--;
+        if (qualityCanBeDecreased()) {
+            this.quality--;
+        }
+    }
 
+    private boolean qualityCanBeDecreased() {
+        return this.quality > 0;
     }
 
     @Override
