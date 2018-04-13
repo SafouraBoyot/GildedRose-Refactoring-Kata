@@ -1,16 +1,20 @@
 package com.gildedrose;
 
-public class RegularItem extends Item implements ItemHandler {
+public class RegularItem extends Item implements Strategy {
 
-    public RegularItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    private Item item;
+
+    public RegularItem(Item item) {
+        super(item.name, item.sellIn, item.quality);
+        this.item = item;
     }
 
     @Override
-    public void updateQuality() {
+    public Item updateQuality() {
         if (qualityCanBeDecreased()) {
             this.quality--;
         }
+        return this;
     }
 
     private boolean qualityCanBeDecreased() {
@@ -18,7 +22,10 @@ public class RegularItem extends Item implements ItemHandler {
     }
 
     @Override
-    public void updateSellIne() {
+    public Item updateSellIn() {
         this.sellIn--;
+        return this;
     }
+
+
 }

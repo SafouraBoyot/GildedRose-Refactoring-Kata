@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 public interface Strategy {
-    void updateQuality();
-    void updateSellIn();
+
+    Item updateQuality();
+    Item updateSellIn();
 }

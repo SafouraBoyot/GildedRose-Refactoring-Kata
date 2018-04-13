@@ -1,19 +1,22 @@
 package com.gildedrose;
 
-public class Sulfuras extends Item implements ItemHandler {
+public class Sulfuras extends Item implements Strategy {
 
-    public Sulfuras(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    private Item item;
+
+    public Sulfuras(Item item) {
+        super(item.name, item.sellIn, item.quality);
+        this.item = item;
     }
 
 
     @Override
-    public void updateQuality() {
-
+    public Item updateQuality() {
+        return this;
     }
 
     @Override
-    public void updateSellIne() {
-
+    public Item updateSellIn() {
+        return this;
     }
 }
