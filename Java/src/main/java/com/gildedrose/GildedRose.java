@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import javax.naming.Context;
+
 class GildedRose {
     Item[] items;
 
@@ -9,6 +11,12 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
+
+            StrategyFactory strategyFactory = new StrategyFactory(item);
+            Strategy itemStrategy = strategyFactory.getStrategy();
+            ItemUpdateHandler itemUpdateHandler = new ItemUpdateHandler(itemStrategy);
+            itemUpdateHandler.update();
+            
             boolean isSulfuras = ItemName.isSulfuras(item.name);
             boolean isAgedBrie = ItemName.isAgedBrie(item.name);
             boolean isBackstagePasses = ItemName.isBackstagePasses(item.name);
