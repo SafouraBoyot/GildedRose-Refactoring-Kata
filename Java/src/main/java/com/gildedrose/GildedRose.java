@@ -10,12 +10,13 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            StrategyFactory strategyFactory = new StrategyFactory(item);
-            Strategy itemStrategy = strategyFactory.getStrategy();
-            item.quality = itemStrategy.updateQuality().quality;
-            item.sellIn = itemStrategy.updateSellIn().sellIn;
+            ItemHandlerFactory itemHandlerFactory = new ItemHandlerFactory(item);
+            ItemHandler itemHandler = itemHandlerFactory.getItemHandler();
+            
+//            item = itemHandler.updateItem().clone();
 
-
+            item.quality = itemHandler.updateQuality().quality;
+            item.sellIn = itemHandler.updateSellIn().sellIn;
         }
     }
 }

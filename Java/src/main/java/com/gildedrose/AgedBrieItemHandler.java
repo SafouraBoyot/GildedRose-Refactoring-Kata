@@ -1,23 +1,20 @@
 package com.gildedrose;
 
-public class BackstagePasses extends Item implements Strategy,Cloneable {
+public class AgedBrieItemHandler extends Item implements ItemHandler {
+
     private Item item;
 
-    public BackstagePasses(Item item) {
+    public AgedBrieItemHandler(Item item) {
         super(item.name, item.sellIn, item.quality);
         this.item = item;
     }
 
     @Override
     public Item updateQuality() {
-        if (this.sellIn < 0) this.quality = 0;
+        if (this.sellIn < 0) {
+            increaseQuality();
+        }
         increaseQuality();
-        if (sellIn < 11) {
-            increaseQuality();
-        }
-        if (sellIn < 6) {
-            increaseQuality();
-        }
         return this;
     }
 
@@ -31,9 +28,11 @@ public class BackstagePasses extends Item implements Strategy,Cloneable {
         if (qualityCanBeIncreased()) {
             this.quality++;
         }
+
     }
 
     private boolean qualityCanBeIncreased() {
         return this.quality < 50;
     }
+
 }

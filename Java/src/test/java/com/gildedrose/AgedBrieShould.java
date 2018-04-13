@@ -10,7 +10,7 @@ public class AgedBrieShould {
     {
         Item item = new Item("Aged Brie", 2, 4);
 
-        AgedBrie agedBrie = new AgedBrie(item);
+        AgedBrieItemHandler agedBrie = new AgedBrieItemHandler(item);
         int expectedQuality = agedBrie.quality+1;
 
         agedBrie.updateQuality();
@@ -22,7 +22,7 @@ public class AgedBrieShould {
     public void decrease_in_sellIn() {
         Item item = new Item("Aged Brie", 2, 4);
 
-        AgedBrie agedBrie = new AgedBrie(item);
+        AgedBrieItemHandler agedBrie = new AgedBrieItemHandler(item);
         int expectedSellIn = agedBrie.sellIn-1;
 
         agedBrie.updateSellIn();
@@ -35,7 +35,7 @@ public class AgedBrieShould {
 
 
         Item item = new Item("Aged Brie", -1, 2);
-        AgedBrie agedBrie = new AgedBrie(item);
+        AgedBrieItemHandler agedBrie = new AgedBrieItemHandler(item);
         int expectedQuality = agedBrie.quality+2;
 
         agedBrie.updateQuality();

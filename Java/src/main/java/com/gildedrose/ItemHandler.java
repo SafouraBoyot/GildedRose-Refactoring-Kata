@@ -1,7 +1,6 @@
 package com.gildedrose;
 
-public interface Strategy {
-
+public interface ItemHandler {
     Item updateQuality();
     Item updateSellIn();
 }

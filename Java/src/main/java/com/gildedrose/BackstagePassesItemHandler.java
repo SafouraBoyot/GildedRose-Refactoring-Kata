@@ -1,20 +1,23 @@
 package com.gildedrose;
 
-public class AgedBrie extends Item implements Strategy {
-
+public class BackstagePassesItemHandler extends Item implements ItemHandler {
     private Item item;
 
-    public AgedBrie(Item item) {
+    public BackstagePassesItemHandler(Item item) {
         super(item.name, item.sellIn, item.quality);
         this.item = item;
     }
 
     @Override
     public Item updateQuality() {
-        if (this.sellIn < 0) {
+        if (this.sellIn < 0) this.quality = 0;
+        increaseQuality();
+        if (sellIn < 11) {
             increaseQuality();
         }
-        increaseQuality();
+        if (sellIn < 6) {
+            increaseQuality();
+        }
         return this;
     }
 
@@ -28,11 +31,9 @@ public class AgedBrie extends Item implements Strategy {
         if (qualityCanBeIncreased()) {
             this.quality++;
         }
-
     }
 
     private boolean qualityCanBeIncreased() {
         return this.quality < 50;
     }
-
 }
