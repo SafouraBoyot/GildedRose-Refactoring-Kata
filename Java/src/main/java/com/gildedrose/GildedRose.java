@@ -45,16 +45,4 @@ class GildedRose {
             }
         }
     }
-
-
-
-    private void updateSellIn(Item item, boolean isSulfuras) {
-        if (!isSulfuras) {
-            decreaseSellIn(item);
-        }
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn = item.sellIn - 1;
-    }
 }
