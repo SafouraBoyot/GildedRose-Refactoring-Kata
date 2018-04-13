@@ -21,44 +21,32 @@ class GildedRose {
                 backstagePasses = new BackstagePasses(item.name, item.sellIn, item.quality);
                 backstagePasses.updateQuality();
                 backstagePasses.updateSellIne();
-                item.quality=backstagePasses.quality;
-                item.sellIn=backstagePasses.sellIn;
-                
+                item.quality = backstagePasses.quality;
+                item.sellIn = backstagePasses.sellIn;
+
             }
             if (isAgedBrie) {
                 agedBrie = new AgedBrie(item.name, item.sellIn, item.quality);
                 agedBrie.updateQuality();
                 agedBrie.updateSellIne();
-                item.quality=agedBrie.quality;
-                item.sellIn=agedBrie.sellIn;
+                item.quality = agedBrie.quality;
+                item.sellIn = agedBrie.sellIn;
             }
             if (isSulfuras) {
                 sulfuras = new Sulfuras(item.name, item.sellIn, item.quality);
-
-            } else {
+            }
+            if (!isAgedBrie && !isBackstagePasses && !isSulfuras) {
                 regularItem = new RegularItem(item.name, item.sellIn, item.quality);
-            }
+                regularItem.updateQuality();
+                regularItem.updateSellIne();
+                item.quality = regularItem.quality;
+                item.sellIn = regularItem.sellIn;
 
-            if(!isBackstagePasses && !isAgedBrie) updateSellIn(item, isSulfuras);
-
-
-            if (!isAgedBrie && !isBackstagePasses) {
-                decreaseQuality(item, isSulfuras);
-            }
-            if (item.sellIn < 0) {
-                if (!isAgedBrie) {
-                    if (isBackstagePasses) {
-                        item.quality = 0;
-                    }
-                    decreaseQuality(item, isSulfuras);
-                }
             }
         }
     }
 
-    private boolean qualityCanBeIncreased(Item item) {
-        return item.quality < 50;
-    }
+
 
     private void updateSellIn(Item item, boolean isSulfuras) {
         if (!isSulfuras) {
@@ -68,17 +56,5 @@ class GildedRose {
 
     private void decreaseSellIn(Item item) {
         item.sellIn = item.sellIn - 1;
-    }
-
-    private void increaseQuality(Item item ) {
-        if (qualityCanBeIncreased(item)) {
-            item.quality = item.quality + 1;
-        }
-    }
-
-    private void decreaseQuality(Item item, boolean isSulfuras) {
-        if (!isSulfuras && item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
     }
 }

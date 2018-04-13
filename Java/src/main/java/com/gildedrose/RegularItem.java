@@ -8,6 +8,7 @@ public class RegularItem extends Item implements ItemHandler {
 
     @Override
     public void updateQuality() {
+        this.quality--;
 
     }
 
