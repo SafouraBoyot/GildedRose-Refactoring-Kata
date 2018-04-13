@@ -12,23 +12,35 @@ class GildedRose {
             boolean isSulfuras = ItemName.isSulfuras(item.name);
             boolean isAgedBrie = ItemName.isAgedBrie(item.name);
             boolean isBackstagePasses = ItemName.isBackstagePasses(item.name);
+            BackstagePasses backstagePasses = null;
+            AgedBrie agedBrie = null;
+            Sulfuras sulfuras = null;
+            RegularItem regularItem = null;
 
-            //decide what item type
-//            Item someItem = new...
-//            item.updateQuality();
-//            item.updateSellIn();
+            if (isBackstagePasses) {
+                backstagePasses = new BackstagePasses(item.name, item.sellIn, item.quality);
+            }
+            if (isAgedBrie) {
+                agedBrie = new AgedBrie(item.name, item.sellIn, item.quality);
+            }
+            if (isSulfuras) {
+                sulfuras = new Sulfuras(item.name, item.sellIn, item.quality);
+            } else {
+                regularItem = new RegularItem(item.name, item.sellIn, item.quality);
+            }
+
 
             updateSellIn(item, isSulfuras);
+
 
             if (!isAgedBrie && !isBackstagePasses) {
                 decreaseQuality(item, isSulfuras);
             } else {
                 if (qualityCanBeIncreased(item)) {
                     increaseQuality(item);
-                    if(isBackstagePasses){
-                        BackstagePasses backstagePasses = new BackstagePasses(item.name, item.sellIn, item.quality);
-                        backstagePasses.increaseQuality();
-                        item =backstagePasses;
+                    if (isBackstagePasses) {
+                        backstagePasses.updateQuality();
+                        item = backstagePasses;
                     }
                 }
             }
@@ -45,8 +57,6 @@ class GildedRose {
             }
         }
     }
-
-
 
 
     private void increaseQualityForBackstagePasses(Item item, boolean isBackstagePasses) {

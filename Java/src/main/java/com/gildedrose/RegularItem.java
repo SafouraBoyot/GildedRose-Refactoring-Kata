@@ -7,22 +7,12 @@ public class RegularItem extends Item implements ItemHandler {
     }
 
     @Override
-    public void decreaseQuality() {
+    public void updateQuality() {
 
     }
 
     @Override
-    public void increaseQuality() {
-
-    }
-
-    @Override
-    public void decreaseSellIn() {
-
-    }
-
-    @Override
-    public void increaseSellIn() {
+    public void updateSellIne() {
 
     }
 }

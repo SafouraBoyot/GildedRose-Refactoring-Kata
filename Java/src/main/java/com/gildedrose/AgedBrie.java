@@ -6,23 +6,14 @@ public class AgedBrie extends Item implements ItemHandler {
         super(name, sellIn, quality);
     }
 
+
     @Override
-    public void decreaseQuality() {
+    public void updateQuality() {
 
     }
 
     @Override
-    public void increaseQuality() {
-
-    }
-
-    @Override
-    public void decreaseSellIn() {
-
-    }
-
-    @Override
-    public void increaseSellIn() {
+    public void updateSellIne() {
 
     }
 }
