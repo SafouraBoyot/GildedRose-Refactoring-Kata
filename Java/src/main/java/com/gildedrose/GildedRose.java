@@ -14,7 +14,6 @@ class GildedRose {
             boolean isBackstagePasses = ItemName.isBackstagePasses(item.name);
             BackstagePasses backstagePasses = null;
             AgedBrie agedBrie = null;
-            Sulfuras sulfuras = null;
             RegularItem regularItem = null;
 
             if (isBackstagePasses) {
@@ -31,9 +30,6 @@ class GildedRose {
                 agedBrie.updateSellIne();
                 item.quality = agedBrie.quality;
                 item.sellIn = agedBrie.sellIn;
-            }
-            if (isSulfuras) {
-                sulfuras = new Sulfuras(item.name, item.sellIn, item.quality);
             }
             if (!isAgedBrie && !isBackstagePasses && !isSulfuras) {
                 regularItem = new RegularItem(item.name, item.sellIn, item.quality);
