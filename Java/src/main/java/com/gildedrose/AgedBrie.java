@@ -14,6 +14,6 @@ public class AgedBrie extends Item implements ItemHandler {
 
     @Override
     public void updateSellIne() {
-
+        this.sellIn--;
     }
 }

@@ -13,6 +13,6 @@ public class RegularItem extends Item implements ItemHandler {
 
     @Override
     public void updateSellIne() {
-
+        this.sellIn--;
     }
 }
