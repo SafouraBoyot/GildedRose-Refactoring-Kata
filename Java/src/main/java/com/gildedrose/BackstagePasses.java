@@ -5,32 +5,31 @@ public class BackstagePasses extends Item implements ItemHandler {
         super(name, sellIn, quality);
     }
 
-
-    private boolean qualityCanBeIncreased() {
-        return this.quality < 50;
-    }
-
     @Override
     public void updateQuality() {
         if (this.sellIn < 0) this.quality = 0;
-
         this.quality++;
         if (sellIn < 11) {
-            if (qualityCanBeIncreased()) {
-                this.quality++;
-            }
+            increaseQuality();
         }
         if (sellIn < 6) {
-            if (qualityCanBeIncreased()) {
-                this.quality++;
-            }
+            increaseQuality();
         }
+    }
 
-
+    private void increaseQuality() {
+        if (qualityCanBeIncreased()) {
+            this.quality++;
+        }
     }
 
     @Override
     public void updateSellIne() {
         this.sellIn--;
     }
+
+    private boolean qualityCanBeIncreased() {
+        return this.quality < 50;
+    }
+
 }
