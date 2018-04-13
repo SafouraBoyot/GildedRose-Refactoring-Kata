@@ -12,17 +12,20 @@ public class BackstagePasses extends Item implements ItemHandler {
 
     @Override
     public void updateQuality() {
-        this.quality++;
-//        if (sellIn < 11) {
-//            if (qualityCanBeIncreased()) {
-//                this.quality++;
-//            }
-//        }
-//        if (sellIn < 6) {
-//            if (qualityCanBeIncreased()) {
-//                this.quality++;
-//            }
-//        }
+
+
+            this.quality++;
+
+        if (sellIn < 11) {
+            if (qualityCanBeIncreased()) {
+                this.quality++;
+            }
+        }
+        if (sellIn < 6) {
+            if (qualityCanBeIncreased()) {
+                this.quality++;
+            }
+        }
     }
 
     @Override

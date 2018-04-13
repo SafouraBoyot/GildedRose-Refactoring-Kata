@@ -10,7 +10,7 @@ public class GlidedRoseFeature {
         String actualResult = getActualResult();
         String expectedResult = getExpectedResult();
         
-        assertEquals(actualResult, expectedResult);
+        assertEquals( expectedResult,actualResult);
     }
 
     private String getExpectedResult() {
