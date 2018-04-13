@@ -6,20 +6,23 @@ public class RegularItemCategory extends Category implements CategoryHandler {
     }
 
     @Override
-    public Item updateQuality() {
+    public Item update() {
+       updateQuality();
+       updateSellIn();
+        return this;
+    }
+    private void updateQuality() {
         if (qualityCanBeDecreased()) {
             this.quality--;
         }
-        return this;
     }
 
     private boolean qualityCanBeDecreased() {
         return this.quality > 0;
     }
 
-    @Override
-    public Item updateSellIn() {
+    private void updateSellIn() {
         this.sellIn--;
-        return this;
     }
+
 }

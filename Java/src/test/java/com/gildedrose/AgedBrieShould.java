@@ -12,7 +12,7 @@ public class AgedBrieShould {
         AgedBrieCategory agedBrie = new AgedBrieCategory(item);
         int expectedQuality = agedBrie.quality+1;
 
-        agedBrie.updateQuality();
+        agedBrie.update();
 
         assertEquals(expectedQuality, agedBrie.quality);
     }
@@ -24,7 +24,7 @@ public class AgedBrieShould {
         AgedBrieCategory agedBrie = new AgedBrieCategory(item);
         int expectedSellIn = agedBrie.sellIn-1;
 
-        agedBrie.updateSellIn();
+        agedBrie.update();
 
         assertEquals(expectedSellIn, agedBrie.sellIn);
     }
@@ -35,7 +35,7 @@ public class AgedBrieShould {
         AgedBrieCategory agedBrie = new AgedBrieCategory(item);
         int expectedQuality = agedBrie.quality+2;
 
-        agedBrie.updateQuality();
+        agedBrie.update();
 
         assertEquals(expectedQuality, agedBrie.quality);
     }

@@ -6,18 +6,22 @@ public class AgedBrieCategory extends Category implements CategoryHandler {
     }
 
     @Override
-    public Item updateQuality() {
+    public Item update() {
+        updateQuality();
+        updateSellIn();
+        return this;
+    }
+
+    private void updateQuality() {
         if (this.sellIn < 0) {
             increaseQuality();
         }
         increaseQuality();
-        return this;
     }
 
-    @Override
-    public Item updateSellIn() {
+
+    private void updateSellIn() {
         this.sellIn--;
-        return this;
     }
 
     private void increaseQuality() {

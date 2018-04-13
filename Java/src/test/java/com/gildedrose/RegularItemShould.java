@@ -12,7 +12,7 @@ public class RegularItemShould {
         RegularItemCategory regularItem = new RegularItemCategory(item);
         int expectedQuality = regularItem.quality-1;
 
-        regularItem.updateQuality();
+        regularItem.update();
 
         assertEquals(expectedQuality, regularItem.quality);
     }
@@ -23,7 +23,7 @@ public class RegularItemShould {
         RegularItemCategory regularItem = new RegularItemCategory(item);
         int expectedSellIn = regularItem.sellIn-1;
 
-        regularItem.updateSellIn();
+        regularItem.update();
 
         assertEquals(expectedSellIn, regularItem.sellIn);
     }

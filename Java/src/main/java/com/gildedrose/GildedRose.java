@@ -12,9 +12,11 @@ class GildedRose {
         for (Item item : items) {
             CategoryFactory categoryFactory = new CategoryFactory(item);
             CategoryHandler categoryHandler = categoryFactory.getCategoryHandler();
-
-            item.quality = categoryHandler.updateQuality().quality;
-            item.sellIn = categoryHandler.updateSellIn().sellIn;
+            
+            Item newItem = categoryHandler.update();
+            
+            item.quality = newItem.quality;
+            item.sellIn = newItem.sellIn;
         }
     }
 }

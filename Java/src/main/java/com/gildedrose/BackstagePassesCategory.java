@@ -6,7 +6,13 @@ public class BackstagePassesCategory extends Category implements CategoryHandler
     }
 
     @Override
-    public Item updateQuality() {
+    public Item update() {
+        updateQuality();
+        updateSellIn();
+        return this;
+    }
+
+    private void updateQuality() {
         if (this.sellIn < 0) this.quality = 0;
         increaseQuality();
         if (sellIn < 11) {
@@ -15,13 +21,10 @@ public class BackstagePassesCategory extends Category implements CategoryHandler
         if (sellIn < 6) {
             increaseQuality();
         }
-        return this;
     }
 
-    @Override
-    public Item updateSellIn() {
+    private void updateSellIn() {
         this.sellIn--;
-        return this;
     }
 
     private void increaseQuality() {
@@ -33,4 +36,5 @@ public class BackstagePassesCategory extends Category implements CategoryHandler
     private boolean qualityCanBeIncreased() {
         return this.quality < 50;
     }
+
 }
