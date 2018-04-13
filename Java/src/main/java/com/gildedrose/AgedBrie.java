@@ -9,7 +9,10 @@ public class AgedBrie extends Item implements ItemHandler {
 
     @Override
     public void updateQuality() {
-
+        if (this.sellIn < 0) {
+            this.quality++;
+        }
+        this.quality++;
     }
 
     @Override

@@ -27,7 +27,10 @@ class GildedRose {
             }
             if (isAgedBrie) {
                 agedBrie = new AgedBrie(item.name, item.sellIn, item.quality);
-
+                agedBrie.updateQuality();
+                agedBrie.updateSellIne();
+                item.quality=agedBrie.quality;
+                item.sellIn=agedBrie.sellIn;
             }
             if (isSulfuras) {
                 sulfuras = new Sulfuras(item.name, item.sellIn, item.quality);
@@ -36,20 +39,13 @@ class GildedRose {
                 regularItem = new RegularItem(item.name, item.sellIn, item.quality);
             }
 
-            if(!isBackstagePasses) updateSellIn(item, isSulfuras);
+            if(!isBackstagePasses && !isAgedBrie) updateSellIn(item, isSulfuras);
 
 
             if (!isAgedBrie && !isBackstagePasses) {
                 decreaseQuality(item, isSulfuras);
-            } else {
-                if (qualityCanBeIncreased(item)) {
-                    if(!isBackstagePasses) increaseQuality(item);
-                }
             }
             if (item.sellIn < 0) {
-                if (isAgedBrie) {
-                    increaseQuality(item);
-                }
                 if (!isAgedBrie) {
                     if (isBackstagePasses) {
                         item.quality = 0;
