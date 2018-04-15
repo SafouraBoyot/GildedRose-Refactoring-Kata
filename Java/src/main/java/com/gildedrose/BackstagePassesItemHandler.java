@@ -14,8 +14,8 @@ public class BackstagePassesItemHandler implements ItemHandler {
     }
 
     private void updateQuality() {
-        if (this.item.sellIn < 0) {
-            this.item.quality = 0;
+        if (item.sellIn < 0) {
+            item.quality = 0;
         }
         
         increaseQuality();
@@ -29,24 +29,24 @@ public class BackstagePassesItemHandler implements ItemHandler {
     }
 
     private boolean lessThanSixDaysToSellItem() {
-        return this.item.sellIn < 6;
+        return item.sellIn < 6;
     }
 
     private boolean lessThanElevenDaysToSellItem() {
-        return this.item.sellIn < 11;
+        return item.sellIn < 11;
     }
 
     private void updateSellIn() {
-        this.item.sellIn--;
+        item.sellIn--;
     }
 
     private void increaseQuality() {
         if (qualityCanBeIncreased()) {
-            this.item.quality++;
+            item.quality++;
         }
     }
 
     private boolean qualityCanBeIncreased() {
-        return this.item.quality < 50;
+        return item.quality < 50;
     }
 }

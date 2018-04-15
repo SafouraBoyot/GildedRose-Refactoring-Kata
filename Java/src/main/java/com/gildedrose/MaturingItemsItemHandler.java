@@ -14,7 +14,7 @@ public class MaturingItemsItemHandler implements ItemHandler {
     }
 
     private void updateQuality() {
-        if (this.item.sellIn < 0) {
+        if (item.sellIn < 0) {
             increaseQuality();
         }
         increaseQuality();
@@ -22,16 +22,16 @@ public class MaturingItemsItemHandler implements ItemHandler {
 
 
     private void updateSellIn() {
-        this.item.sellIn--;
+        item.sellIn--;
     }
 
     private void increaseQuality() {
         if (qualityCanBeIncreased()) {
-            this.item.quality++;
+            item.quality++;
         }
     }
 
     private boolean qualityCanBeIncreased() {
-        return this.item.quality < 50;
+        return item.quality < 50;
     }
 }

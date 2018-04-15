@@ -15,15 +15,15 @@ public class RegularItemItemHandler implements ItemHandler {
     
     private void updateQuality() {
         if (qualityCanBeDecreased()) {
-            this.item.quality--;
+            item.quality--;
         }
     }
 
     private boolean qualityCanBeDecreased() {
-        return this.item.quality > 0;
+        return item.quality > 0;
     }
 
     private void updateSellIn() {
-        this.item.sellIn--;
+        item.sellIn--;
     }
 }
