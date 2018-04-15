@@ -1,23 +1,23 @@
 package com.gildedrose;
 
-public class CategoryFactory {
+public class ItemHandlerFactory {
     private final Item item;
 
-    public CategoryFactory(Item item) {
+    public ItemHandlerFactory(Item item) {
         this.item = item;
     }
 
-    public CategoryHandler getCategoryHandler() {
+    public ItemHandler getItemHandler() {
         if (isBackstagePasses()) {
-            return new BackstagePassesCategory(item);
+            return new BackstagePassesItemHandler(item);
         }
         if (isAgedBrie()) {
-            return new AgedBrieCategory(item);
+            return new MaturingItemsItemHandler(item);
         }
         if (isSulfuras()) {
-            return new SulfurasCategory(item);
+            return new SulfurasItemHandler(item);
         }
-        return new RegularItemCategory(item);
+        return new RegularItemItemHandler(item);
     }
 
     private boolean isSulfuras() {

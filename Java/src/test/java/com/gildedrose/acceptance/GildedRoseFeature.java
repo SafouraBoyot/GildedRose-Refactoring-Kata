@@ -4,13 +4,13 @@ import org.junit.Test;
 import java.io.*;
 import static org.junit.Assert.assertEquals;
 
-public class GlidedRoseFeature {
+public class GildedRoseFeature {
     @Test
     public void GoldenMaster() {        
         String actualResult = getActualResult();
         String expectedResult = getExpectedResult();
         
-        assertEquals( expectedResult,actualResult);
+        assertEquals(expectedResult, actualResult);
     }
 
     private String getExpectedResult() {
@@ -20,8 +20,8 @@ public class GlidedRoseFeature {
                 "+5 Dexterity Vest, 10, 20\n" +
                 "Aged Brie, 2, 0\n" +
                 "Elixir of the Mongoose, 5, 7\n" +
-                "SulfurasCategory, Hand of Ragnaros, 0, 80\n" +
-                "SulfurasCategory, Hand of Ragnaros, -1, 80\n" +
+                "SulfurasItemHandler, Hand of Ragnaros, 0, 80\n" +
+                "SulfurasItemHandler, Hand of Ragnaros, -1, 80\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 15, 20\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 10, 49\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 5, 49\n" +
@@ -32,8 +32,8 @@ public class GlidedRoseFeature {
                 "+5 Dexterity Vest, 9, 19\n" +
                 "Aged Brie, 1, 1\n" +
                 "Elixir of the Mongoose, 4, 6\n" +
-                "SulfurasCategory, Hand of Ragnaros, 0, 80\n" +
-                "SulfurasCategory, Hand of Ragnaros, -1, 80\n" +
+                "SulfurasItemHandler, Hand of Ragnaros, 0, 80\n" +
+                "SulfurasItemHandler, Hand of Ragnaros, -1, 80\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 14, 21\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 9, 50\n" +
                 "Backstage passes to a TAFKAL80ETC concert, 4, 50\n" +

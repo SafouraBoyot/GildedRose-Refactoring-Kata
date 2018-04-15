@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-
 class GildedRose {
     Item[] items;
 
@@ -10,13 +9,10 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            CategoryFactory categoryFactory = new CategoryFactory(item);
-            CategoryHandler categoryHandler = categoryFactory.getCategoryHandler();
+            ItemHandlerFactory itemHandlerFactory = new ItemHandlerFactory(item);
+            ItemHandler itemHandler = itemHandlerFactory.getItemHandler();
             
-            Item newItem = categoryHandler.update();
-            
-            item.quality = newItem.quality;
-            item.sellIn = newItem.sellIn;
+            itemHandler.update();
         }
     }
 }

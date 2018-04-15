@@ -1,19 +1,20 @@
 package com.gildedrose;
 
-public class AgedBrieCategory extends Category implements CategoryHandler {
-    public AgedBrieCategory(Item item) {
-        super(item.name, item.sellIn, item.quality);
+public class MaturingItemsItemHandler implements ItemHandler {
+    private Item item;
+
+    public MaturingItemsItemHandler(Item item) {
+        this.item = item;
     }
 
     @Override
-    public Item update() {
+    public void update() {
         updateQuality();
         updateSellIn();
-        return this;
     }
 
     private void updateQuality() {
-        if (this.sellIn < 0) {
+        if (this.item.sellIn < 0) {
             increaseQuality();
         }
         increaseQuality();
@@ -21,17 +22,16 @@ public class AgedBrieCategory extends Category implements CategoryHandler {
 
 
     private void updateSellIn() {
-        this.sellIn--;
+        this.item.sellIn--;
     }
 
     private void increaseQuality() {
         if (qualityCanBeIncreased()) {
-            this.quality++;
+            this.item.quality++;
         }
-
     }
 
     private boolean qualityCanBeIncreased() {
-        return this.quality < 50;
+        return this.item.quality < 50;
     }
 }
